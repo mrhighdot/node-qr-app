@@ -2,11 +2,13 @@
   "name": "logger",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/server.ts",
-    "dev": "nodemon src/server.ts"
+    "build": "rimraf tsc",
+    "start": "node dist/server.js",
+    "dev": "concurrently \"npx tsc -w\" \"nodemon dist/server.js\""
   },
   "keywords": [],
   "author": "",
@@ -15,7 +17,9 @@
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "rimraf": "^5.0.7",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
